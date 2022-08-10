@@ -45,7 +45,7 @@ class Transformer(kfserving.KFModel):
         with open(filename, "w") as f:
             f.write(data)
         data = pd.read_csv(filename)
-        payload = {"instances": data.values.tolist(), "token": inputs["token"]}
+        payload = {"data": data.values.tolist()}
         return payload
 
     def postprocess(self, predictions: List) -> List:
