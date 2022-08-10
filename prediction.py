@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing as skpreprocessing
 from sklearn.linear_model import SGDRegressor   
 from sklearn.preprocessing import StandardScaler
+from mlflow.models.signature import infer_signature
 import mlflow
 import pandas as pd
 import utils
@@ -73,8 +74,10 @@ class InsuranceModel:
             mse = metrics.mean_squared_error(y_test, y_pred)
             rmse = np.sqrt(metrics.mean_squared_error(y_test, y_pred))
 
+            signature = infer_signature(x_train, self._regressor.predict(x_train))
+
             # Log model and params using the MLflow sklearn APIs
-            mlflow.sklearn.log_model(self.model, "sgd-regressor")
+            mlflow.sklearn.log_model(self.model, "sgd-regressor", signature=signature)
 
             # log metrics in mlflow
             mlflow.log_metric("MAE", mae)

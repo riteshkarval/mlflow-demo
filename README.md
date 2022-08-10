@@ -19,8 +19,8 @@ eg: mlflow artifacts  download -r c263bdaa-9505-4dd5-81fa-f9dbf40190fc -d ./outp
 1. Update the conda.yaml file in the downloaded path and add protobuf==3.19.4 in pip dependenicies
 2. Run the below command to build the image
 ```
-mlflow models build-docker -n <image-name> -m <local-path>/decision-tree-classifier
-eg: mlflow models build-docker -n lucifer001/mlflow-sklearn-demo:demo1 -m output/decision-tree-classifier
+mlflow models build-docker -n <image-name> -m <local-path>/sgd-regressor
+eg: mlflow models build-docker -n lucifer001/mlflow-insurnace-demo:demo1 -m output/sgd-regressor
 ```
 3.Push the image
 
