@@ -91,20 +91,12 @@ class InsuranceModel:
                 print(f"{temp_name} file is not found")
 
             # Logging serving transformer
-            temp_name = "transformer.py"
-            mlflow.log_artifact(temp_name, "transformer")
-            try:
-                os.remove(temp_name)
-            except FileNotFoundError as e:
-                print(f"{temp_name} file is not found")
+            transformerfile_name = "transformer.py"
+            mlflow.log_artifact(transformerfile_name, "transformer")
 
             # Logging monitoring train data transformer
-            temp_name = "transform-data.py"
-            mlflow.log_artifact(temp_name, "traindata-transformer")
-            try:
-                os.remove(temp_name)
-            except FileNotFoundError as e:
-                print(f"{temp_name} file is not found")
+            traindata_transformerfile_name = "transform-data.py"
+            mlflow.log_artifact(traindata_transformerfile_name, "traindata-transformer")
 
             print("<->" * 40)
             print("Inside MLflow Run with run_id {run_id} and experiment_id {experiment_id}")
