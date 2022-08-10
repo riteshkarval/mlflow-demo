@@ -101,6 +101,10 @@ class InsuranceModel:
             traindata_transformerfile_name = "transform-data.py"
             mlflow.log_artifact(traindata_transformerfile_name, "traindata-transformer")
 
+            # Logging thresholds
+            traindata_transformerfile_name = "thresholds.json"
+            mlflow.log_artifact(traindata_transformerfile_name, "thresholds")
+
             print("<->" * 40)
             print("Inside MLflow Run with run_id {run_id} and experiment_id {experiment_id}")
             print("MAE", mae)
